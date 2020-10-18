@@ -1,0 +1,35 @@
+#Guess the number 
+
+import random
+from tkinter import*
+
+window=Tk()
+window.title("Guess the number")
+
+first_label=Label(window,text="Guess the number")
+first_label.pack()
+
+first_input=Entry(window)
+first_input.pack()
+
+def action():
+    value=first_input.get()
+
+    number=str(random.randrange(1,3,1))
+
+    trick=Label(window,text=number)
+    trick.pack()
+
+    if(value!=number):
+        msg_label_lose=Label(window,text="You lose")
+        msg_label_lose.pack()
+    
+
+    if(value==number):
+        msg_label_win=Label(window,text="You win!!!")
+        msg_label_win.pack()
+
+verify=Button(window,text="Verify",command=action)
+verify.pack()
+
+window.mainloop()
